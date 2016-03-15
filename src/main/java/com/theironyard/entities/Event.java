@@ -22,6 +22,9 @@ public class Event {
     @ManyToOne
     User user;
 
+    @Transient // don't store in the database
+    boolean showFavButton = false;
+
     public Event() {
     }
 
@@ -29,5 +32,9 @@ public class Event {
         this.description = description;
         this.dateTime = dateTime;
         this.user = user;
+    }
+
+    public void setShowFavButton(boolean showFavButton) {
+        this.showFavButton = showFavButton;
     }
 }
